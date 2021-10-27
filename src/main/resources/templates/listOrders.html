@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12" th:if="${orderList.size() > 0}">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Balloon color</th>
+                        <th scope="col">Balloon size</th>
+                        <th scope="col">Client Name</th>
+                        <th scope="col">Client Address</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order : ${orderList}">
+                        <td th:text="${order.balloonColor}"></td>
+                        <td th:text="${order.balloonSize}"></td>
+                        <td th:text="${order.clientName}"></td>
+                        <td th:text="${order.clientAddress}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <form th:method="POST" th:action="@{/order-list}">
+        <input type="submit" value="Log out">
+    </form>
+</div>
+</html>
